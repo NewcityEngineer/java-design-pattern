@@ -1,7 +1,4 @@
-package com.newcitysoft.study.design_pattern.structural.adapter;
-
-import com.newcitysoft.study.design_pattern.structural.adapter.MediaAdapter;
-import com.newcitysoft.study.design_pattern.structural.adapter.player.MediaPlayer;
+package com.newcitysoft.study.design_pattern.structural.adapter.audio;
 
 public class AudioPlayer implements MediaPlayer {
    MediaAdapter mediaAdapter;

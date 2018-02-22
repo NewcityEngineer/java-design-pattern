@@ -1,4 +1,4 @@
-package com.newcitysoft.study.design_pattern.structural.adapter.player;
+package com.newcitysoft.study.design_pattern.structural.adapter.advanced;
 
 public class VlcPlayer implements AdvancedMediaPlayer{
    @Override

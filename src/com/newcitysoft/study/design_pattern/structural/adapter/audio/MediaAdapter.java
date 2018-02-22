@@ -1,9 +1,8 @@
-package com.newcitysoft.study.design_pattern.structural.adapter;
+package com.newcitysoft.study.design_pattern.structural.adapter.audio;
 
-import com.newcitysoft.study.design_pattern.structural.adapter.player.AdvancedMediaPlayer;
-import com.newcitysoft.study.design_pattern.structural.adapter.player.MediaPlayer;
-import com.newcitysoft.study.design_pattern.structural.adapter.player.Mp4Player;
-import com.newcitysoft.study.design_pattern.structural.adapter.player.VlcPlayer;
+import com.newcitysoft.study.design_pattern.structural.adapter.advanced.AdvancedMediaPlayer;
+import com.newcitysoft.study.design_pattern.structural.adapter.advanced.Mp4Player;
+import com.newcitysoft.study.design_pattern.structural.adapter.advanced.VlcPlayer;
 
 public class MediaAdapter implements MediaPlayer {
 

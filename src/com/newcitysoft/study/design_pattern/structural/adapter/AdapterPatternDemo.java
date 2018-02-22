@@ -1,5 +1,7 @@
 package com.newcitysoft.study.design_pattern.structural.adapter;
 
+import com.newcitysoft.study.design_pattern.structural.adapter.audio.AudioPlayer;
+
 public class AdapterPatternDemo {
    public static void main(String[] args) {
       AudioPlayer audioPlayer = new AudioPlayer();
