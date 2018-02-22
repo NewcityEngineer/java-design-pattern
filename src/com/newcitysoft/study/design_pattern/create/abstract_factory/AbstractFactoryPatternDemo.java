@@ -1,5 +1,9 @@
 package com.newcitysoft.study.design_pattern.create.abstract_factory;
 
+import com.newcitysoft.study.design_pattern.create.abstract_factory.color.Color;
+import com.newcitysoft.study.design_pattern.create.abstract_factory.factory.AbstractFactory;
+import com.newcitysoft.study.design_pattern.create.abstract_factory.shape.Shape;
+
 /**
  * 抽象工厂模式
  * 抽象工厂模式（Abstract Factory Pattern）是围绕一个超级工厂创建其他工厂。

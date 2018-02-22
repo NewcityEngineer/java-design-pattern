@@ -1,4 +1,4 @@
-package com.newcitysoft.study.design_pattern.create.factory;
+package com.newcitysoft.study.design_pattern.create.factory.shape;
 /**
  * 我们将创建一个 Shape 接口和实现 Shape 接口的实体类。
  * 下一步是定义工厂类 ShapeFactory。

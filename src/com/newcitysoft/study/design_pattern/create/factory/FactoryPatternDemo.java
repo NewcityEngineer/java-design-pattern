@@ -1,5 +1,7 @@
 package com.newcitysoft.study.design_pattern.create.factory;
 
+import com.newcitysoft.study.design_pattern.create.factory.shape.Shape;
+
 /**
  * 工厂模式
  * 工厂模式（Factory Pattern）是 Java 中最常用的设计模式之一。

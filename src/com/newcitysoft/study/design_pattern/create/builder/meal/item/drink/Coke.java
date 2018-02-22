@@ -1,4 +1,4 @@
-package com.newcitysoft.study.design_pattern.create.builder;
+package com.newcitysoft.study.design_pattern.create.builder.meal.item.drink;
 
 public class Coke extends ColdDrink {
 

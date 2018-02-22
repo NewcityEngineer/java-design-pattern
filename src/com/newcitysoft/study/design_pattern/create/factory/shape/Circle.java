@@ -1,4 +1,4 @@
-package com.newcitysoft.study.design_pattern.create.factory;
+package com.newcitysoft.study.design_pattern.create.factory.shape;
 
 public class Circle implements Shape {
 

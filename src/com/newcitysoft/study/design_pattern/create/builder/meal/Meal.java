@@ -1,10 +1,12 @@
-package com.newcitysoft.study.design_pattern.create.builder;
+package com.newcitysoft.study.design_pattern.create.builder.meal;
+
+import com.newcitysoft.study.design_pattern.create.builder.meal.item.Item;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Meal {
-   private List<Item> items = new ArrayList<Item>();    
+   private List<Item> items = new ArrayList<Item>();
 
    public void addItem(Item item){
       items.add(item);

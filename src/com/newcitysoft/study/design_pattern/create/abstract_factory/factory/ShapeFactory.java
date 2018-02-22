@@ -1,4 +1,11 @@
-package com.newcitysoft.study.design_pattern.create.abstract_factory;
+package com.newcitysoft.study.design_pattern.create.abstract_factory.factory;
+
+import com.newcitysoft.study.design_pattern.create.abstract_factory.color.Color;
+import com.newcitysoft.study.design_pattern.create.abstract_factory.shape.Circle;
+import com.newcitysoft.study.design_pattern.create.abstract_factory.shape.Rectangle;
+import com.newcitysoft.study.design_pattern.create.abstract_factory.shape.Shape;
+import com.newcitysoft.study.design_pattern.create.abstract_factory.shape.Square;
+
 public class ShapeFactory extends AbstractFactory {
     
    @Override
@@ -17,7 +24,7 @@ public class ShapeFactory extends AbstractFactory {
    }
    
    @Override
-   Color getColor(String color) {
+   public Color getColor(String color) {
       return null;
    }
 }

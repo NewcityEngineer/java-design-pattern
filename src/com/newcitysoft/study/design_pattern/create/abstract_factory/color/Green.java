@@ -1,4 +1,4 @@
-package com.newcitysoft.study.design_pattern.create.abstract_factory;
+package com.newcitysoft.study.design_pattern.create.abstract_factory.color;
 public class Green implements Color {
 
    @Override

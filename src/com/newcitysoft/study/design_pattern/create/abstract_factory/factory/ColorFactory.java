@@ -1,4 +1,11 @@
-package com.newcitysoft.study.design_pattern.create.abstract_factory;
+package com.newcitysoft.study.design_pattern.create.abstract_factory.factory;
+
+import com.newcitysoft.study.design_pattern.create.abstract_factory.color.Blue;
+import com.newcitysoft.study.design_pattern.create.abstract_factory.color.Color;
+import com.newcitysoft.study.design_pattern.create.abstract_factory.color.Green;
+import com.newcitysoft.study.design_pattern.create.abstract_factory.color.Red;
+import com.newcitysoft.study.design_pattern.create.abstract_factory.shape.Shape;
+
 public class ColorFactory extends AbstractFactory {
     
    @Override
@@ -7,7 +14,7 @@ public class ColorFactory extends AbstractFactory {
    }
    
    @Override
-   Color getColor(String color) {
+   public Color getColor(String color) {
       if(color == null){
          return null;
       }        

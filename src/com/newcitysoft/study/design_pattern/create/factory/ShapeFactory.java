@@ -1,5 +1,10 @@
 package com.newcitysoft.study.design_pattern.create.factory;
 
+import com.newcitysoft.study.design_pattern.create.factory.shape.Circle;
+import com.newcitysoft.study.design_pattern.create.factory.shape.Rectangle;
+import com.newcitysoft.study.design_pattern.create.factory.shape.Shape;
+import com.newcitysoft.study.design_pattern.create.factory.shape.Square;
+
 public class ShapeFactory {
 
 	//使用 getShape 方法获取形状类型的对象

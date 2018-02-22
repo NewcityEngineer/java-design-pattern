@@ -1,5 +1,8 @@
 package com.newcitysoft.study.design_pattern.create.builder;
 
+import com.newcitysoft.study.design_pattern.create.builder.meal.Meal;
+import com.newcitysoft.study.design_pattern.create.builder.meal.MealBuilder;
+
 public class BuilderPatternDemo {
    public static void main(String[] args) {
       MealBuilder mealBuilder = new MealBuilder();

@@ -1,5 +1,9 @@
-package com.newcitysoft.study.design_pattern.create.abstract_factory;
+package com.newcitysoft.study.design_pattern.create.abstract_factory.factory;
+
+import com.newcitysoft.study.design_pattern.create.abstract_factory.color.Color;
+import com.newcitysoft.study.design_pattern.create.abstract_factory.shape.Shape;
+
 public abstract class AbstractFactory {
-	abstract Color getColor(String color);
-	abstract Shape getShape(String shape) ;
+	public abstract Color getColor(String color);
+	public abstract Shape getShape(String shape) ;
 }
