@@ -31,3 +31,122 @@ FlyWeightPatternDemo，我们的演示类使用 ShapeFactory 来获取 Shape 对
 
 ![享元模式](http://www.runoob.com/wp-content/uploads/2014/08/flyweight_pattern_uml_diagram-1.jpg)
 
+## 步骤 1
+创建一个接口。
+Shape.java
+
+    public interface Shape {
+       void draw();
+    }
+
+## 步骤 2
+创建实现接口的实体类。
+Circle.java
+
+    public class Circle implements Shape {
+       private String color;
+       private int x;
+       private int y;
+       private int radius;
+    
+       public Circle(String color){
+          this.color = color;        
+       }
+    
+       public void setX(int x) {
+          this.x = x;
+       }
+    
+       public void setY(int y) {
+          this.y = y;
+       }
+    
+       public void setRadius(int radius) {
+          this.radius = radius;
+       }
+    
+       @Override
+       public void draw() {
+          System.out.println("Circle: Draw() [Color : " + color 
+             +", x : " + x +", y :" + y +", radius :" + radius);
+       }
+    }
+    
+## 步骤 3
+创建一个工厂，生成基于给定信息的实体类的对象。
+ShapeFactory.java
+
+    import java.util.HashMap;
+    
+    public class ShapeFactory {
+       private static final HashMap<String, Shape> circleMap = new HashMap<>();
+    
+       public static Shape getCircle(String color) {
+          Circle circle = (Circle)circleMap.get(color);
+    
+          if(circle == null) {
+             circle = new Circle(color);
+             circleMap.put(color, circle);
+             System.out.println("Creating circle of color : " + color);
+          }
+          return circle;
+       }
+    }
+    
+## 步骤 4
+使用该工厂，通过传递颜色信息来获取实体类的对象。
+FlyweightPatternDemo.java
+
+    public class FlyweightPatternDemo {
+       private static final String colors[] = 
+          { "Red", "Green", "Blue", "White", "Black" };
+       public static void main(String[] args) {
+    
+          for(int i=0; i < 20; ++i) {
+             Circle circle = 
+                (Circle)ShapeFactory.getCircle(getRandomColor());
+             circle.setX(getRandomX());
+             circle.setY(getRandomY());
+             circle.setRadius(100);
+             circle.draw();
+          }
+       }
+       private static String getRandomColor() {
+          return colors[(int)(Math.random()*colors.length)];
+       }
+       private static int getRandomX() {
+          return (int)(Math.random()*100 );
+       }
+       private static int getRandomY() {
+          return (int)(Math.random()*100);
+       }
+    }
+    
+## 步骤 5
+验证输出。
+
+    Creating circle of color : Black
+    Circle: Draw() [Color : Black, x : 20, y :10, radius :100
+    Circle: Draw() [Color : Black, x : 67, y :13, radius :100
+    Creating circle of color : Red
+    Circle: Draw() [Color : Red, x : 1, y :32, radius :100
+    Circle: Draw() [Color : Black, x : 59, y :66, radius :100
+    Circle: Draw() [Color : Black, x : 99, y :25, radius :100
+    Circle: Draw() [Color : Red, x : 74, y :74, radius :100
+    Creating circle of color : Blue
+    Circle: Draw() [Color : Blue, x : 90, y :58, radius :100
+    Creating circle of color : White
+    Circle: Draw() [Color : White, x : 12, y :61, radius :100
+    Circle: Draw() [Color : Black, x : 68, y :30, radius :100
+    Circle: Draw() [Color : White, x : 67, y :41, radius :100
+    Circle: Draw() [Color : Red, x : 31, y :6, radius :100
+    Circle: Draw() [Color : Black, x : 54, y :14, radius :100
+    Creating circle of color : Green
+    Circle: Draw() [Color : Green, x : 77, y :4, radius :100
+    Circle: Draw() [Color : Green, x : 7, y :76, radius :100
+    Circle: Draw() [Color : White, x : 94, y :19, radius :100
+    Circle: Draw() [Color : White, x : 82, y :0, radius :100
+    Circle: Draw() [Color : Green, x : 1, y :86, radius :100
+    Circle: Draw() [Color : Red, x : 31, y :0, radius :100
+    Circle: Draw() [Color : Green, x : 83, y :11, radius :100
+    Circle: Draw() [Color : White, x : 11, y :80, radius :100
