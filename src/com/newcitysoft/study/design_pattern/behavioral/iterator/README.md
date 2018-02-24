@@ -80,3 +80,165 @@ NameRepository.java
 步骤 3
 使用 NameRepository 来获取迭代器，并打印名字。
 IteratorPatternDemo.java
+
+# 案例2
+此案例增加了一个一种迭代器和容器，是Object类型的迭代器。实质是ArrayList的简单实现。
+
+## 步骤1
+创建实现Container接口的ObjRepository.java，其中还有增加对象数组的方法。
+
+    public class ObjRepository implements Container{
+    
+        /**
+         *
+         */
+        private static double ARRAY_GROWTH_MULTIPLES = 0.75;
+        /**
+         * 默认容量
+         */
+        private static int DEFAULT_CAPACITY = 10;
+        /**
+         * 对象数组
+         */
+        private static Object[] objects = new Object[DEFAULT_CAPACITY];
+        /**
+         * 已使用量=数组总量-剩余量
+         */
+        private static int used = 0;
+        /**
+         * 剩余量
+         */
+        private static int remaining = DEFAULT_CAPACITY;
+    
+        public ObjRepository(){
+        }
+    
+        public ObjRepository(Object...objects){
+            put(objects);
+        }
+    
+        public void put(Object...obj){
+            if(obj.length > remaining){
+                reshape();
+            }
+            System.arraycopy(obj,0, objects, used, obj.length);
+            used += obj.length;
+            remaining = objects.length - used;
+            System.out.println(String.format("used:%d,remaining:%d", used, remaining));
+        }
+    
+        private static void reshape(){
+            int newLength = (int) (objects.length* ARRAY_GROWTH_MULTIPLES);
+            objects = Arrays.copyOf(objects, objects.length+newLength);
+        }
+    
+        @Override
+        public Iterator getIterator() {
+            return new ObjIterator();
+        }
+    
+        private class ObjIterator implements Iterator{
+            int index;
+    
+            @Override
+            public boolean hasNext() {
+                if(index < objects.length){
+                    return true;
+                }
+                return false;
+            }
+    
+            @Override
+            public Object next() {
+                if(this.hasNext()){
+                    return objects[index++];
+                }
+                return null;
+            }
+        }
+    }
+
+## 步骤2
+创建Person类
+    
+    public class Person {
+        private String name;
+        private Gender gender;
+        private int age;
+    
+        public Person(String name, Gender gender, int age){
+            this.name = name;
+            this.gender = gender;
+            this.age = age;
+        }
+    
+        public String getName() {
+            return name;
+        }
+    
+        public void setName(String name) {
+            this.name = name;
+        }
+    
+        public Gender getGender() {
+            return gender;
+        }
+    
+        public void setGender(Gender gender) {
+            this.gender = gender;
+        }
+    
+        public int getAge() {
+            return age;
+        }
+    
+        public void setAge(int age) {
+            this.age = age;
+        }
+    
+        public enum Gender{
+            FAMALE, MALE;
+        }
+    
+        @Override
+        public String toString() {
+            return "Person{" +
+                    "name='" + name + '\'' +
+                    ", gender=" + gender +
+                    ", age=" + age +
+                    '}';
+        }
+    }
+
+## 步骤3
+创建ObjRepository对象，获取迭代器对象，进行迭代。
+
+    public class ObjIteratorDemo {
+        public static void main(String[] args){
+            String[] names = {"Robert" , "John" ,"Julie" , "Lora", "Robert" , "John" ,"Julie" , "Lora", "Robert" , "John" ,"Julie" , "Lora"};
+    
+            Person[] persons = {
+                    new Person("tianlixin", Person.Gender.MALE, 26),
+                    new Person("anlihong", Person.Gender.FAMALE, 25),
+                    new Person("zhaiyinghao", Person.Gender.MALE, 25),
+                    new Person("wangshang", Person.Gender.MALE, 26),
+            };
+    
+            Container container = new ObjRepository(persons);
+    
+            for(Iterator iterator = container.getIterator(); iterator.hasNext();){
+                Object object = iterator.next();
+                if(object!=null) {
+                    System.out.println(object);
+                }
+            }
+        }
+    }
+
+## 验证
+
+    used:4,remaining:6
+    Person{name='tianlixin', gender=MALE, age=26}
+    Person{name='anlihong', gender=FAMALE, age=25}
+    Person{name='zhaiyinghao', gender=MALE, age=25}
+    Person{name='wangshang', gender=MALE, age=26}
